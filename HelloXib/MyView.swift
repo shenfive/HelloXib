@@ -11,6 +11,9 @@ import UIKit
 class MyView: UIView {
     
     var view:UIView!
+    var whenValueChange:((Double)->())? = nil
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -35,4 +38,8 @@ class MyView: UIView {
     }
 
 
+    @IBAction func action(_ sender: UISlider) {
+        whenValueChange?(Double(sender.value))
+    }
+    
 }
