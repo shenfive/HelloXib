@@ -14,6 +14,7 @@ class MyView: UIView {
     var whenValueChange:((Double)->())? = nil
     
     
+    @IBOutlet weak var value: UILabel!
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -40,6 +41,7 @@ class MyView: UIView {
 
     @IBAction func action(_ sender: UISlider) {
         whenValueChange?(Double(sender.value))
+        value.text = "\(Double(sender.value))"
     }
     
 }
